@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+	<head>
+		<title>Word Game</title>
+	</head>	
+	<script>
+		var temp = "";
+		var display = "";
+		function letter(i){
+			if (i == 1)
+				temp = temp + "H";
+			else if (i == 2)
+				temp = temp + "O";
+			else if (i == 3)
+				temp = temp + "S";
+			else if (i == 4)
+				temp = temp + "P";
+			else if (i == 5)
+				temp = temp + "I";
+			else if (i == 6)
+				temp = temp + "T";
+			else if (i == 7)
+				temp = temp + "A";
+			else if (i == 8)
+				temp = temp + "B";
+			else if (i == 9)
+				temp = temp + "L";
+			else
+				temp = temp + "E";
+		}
+		function create(){
+			if (temp != ""){
+				var node = document.createElement('li');
+				node.appendChild(document.createTextNode(temp));
+				document.querySelector('ul').appendChild(node);
+			}
+			temp = "";
+		}
+	</script>
+	<body>
+		<div>
+			<table border="1" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+				<tr>
+					<td><center><button name="h" id="h" onclick="javascript:letter(1)">H</button></center></td>
+					<td><center><button name="o" id="o" onclick="javascript:letter(2)">O</button></center></td>
+					<td><center><button name="s" id="s" onclick="javascript:letter(3)">S</button></center></td>
+					<td><center><button name="p" id="p" onclick="javascript:letter(4)">P</button></center></td>
+					<td><center><button name="i" id="i" onclick="javascript:letter(5)">I</button></center></td>
+					<td><center><button name="t" id="t" onclick="javascript:letter(6)">T</button></center></td>
+					<td><center><button name="a" id="a" onclick="javascript:letter(7)">A</button></center></td>
+					<td><center><button name="b" id="b" onclick="javascript:letter(8)">B</button></center></td>
+					<td><center><button name="l" id="l" onclick="javascript:letter(9)">L</button></center></td>
+					<td><center><button name="e" id="e" onclick="javascript:letter(10)">E</button></center></td>
+				</tr>
+				<tr>
+					<td colspan="10"><center><button name="four" id="four" onclick="javascript:create()">Click Here to form a new Word</button></center></td>
+				</tr>
+				<tr>
+					<td colspan="10"><center><ul style="list-style: none;"> </ul></center></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
