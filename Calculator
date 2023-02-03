@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+	<head>
+		<title>THIS IS A CALCULATOR!</title>
+		<script>
+			var num1 = "";
+			var num2 = "";
+			var op = "";
+			var display = "";
+			function number(i){
+				if(op == ""){
+					num1 = num1 + i;
+					display = num1;
+				}
+				else{
+					num2 = num2 + i;
+					display += i;
+				}
+				document.getElementById("05").value = display;
+			}
+			function operator(j){
+				var temp;
+				if(j == 1)
+					temp = "+";
+				else if (j == 2)
+					temp = "-";
+				else if (j == 3)
+					temp = "*";
+				else
+					temp = "/";
+				if(num1 != "" && num2 == "" && op == ""){
+					op = temp;
+					display = display + " " + op + " ";
+				}
+				document.getElementById("05").value = display;
+			}
+			function clr(){
+				num1 = "";
+				num2 = "";
+				op = "";
+				display = "";
+				document.getElementById("05").value = display;
+			}
+			function eqls(){
+				if(num1 != "" && num2 != "" && op != ""){
+					if(op == "+"){
+						num1 = Number(num1) + Number(num2);
+						op = "";
+						num2 = "";
+						display = num1;
+						document.getElementById("05").value = display;
+					}
+					else if (op == "-"){
+						num1 = Number(num1) - Number(num2);
+						op = "";
+						num2 = "";
+						display = num1;
+						document.getElementById("05").value = display;
+					}
+					else if (op == "*"){
+						num1 = Number(num1) * Number(num2);
+						op = "";
+						num2 = "";
+						display = num1;
+						document.getElementById("05").value = display;
+					}
+					else{
+						num1 = Number(num1) / Number(num2);
+						op = "";
+						num2 = "";
+						display = num1;
+						document.getElementById("05").value = display;
+					}
+				}
+			}
+		</script>
+	</head>	
+	<body>
+		<div>
+			<table border="1" style="border:1px solid black;margin-left:auto;margin-right:auto;">
+				<tr>
+					<td colspan="4"> <center><input type="text" name="05" id="05" readonly /></center></td>
+				</tr>
+				<tr>
+					<td><center><button name="one" id="one" onclick="javascript:number(1)">1</button></center></td>
+					<td><center><button name="two" id="two" onclick="javascript:number(2)">2</button></center></td>
+					<td><center><button name="three" id="three" onclick="javascript:number(3)">3</button></center></td>
+					<td><center><button name="add" id="add" onclick="javascript:operator(1)">+</button></center></td>
+				</tr>
+				<tr>
+					<td><center><button name="four" id="four" onclick="javascript:number(4)">4</button></center></td>
+					<td><center><button name="five" id="five" onclick="javascript:number(5)">5</button></center></td>
+					<td><center><button name="six" id="six" onclick="javascript:number(6)">6</button></center></td>
+					<td><center><button name="sub" id="sub" onclick="javascript:operator(2)">-</button></center></td>
+				</tr>
+				<tr>
+					<td><center><button name="seven" id="seven" onclick="javascript:number(7)">7</button></center></td>
+					<td><center><button name="eight" id="eight" onclick="javascript:number(8)">8</button></center></td>
+					<td><center><button name="nine" id="nine" onclick="javascript:number(9)">9</button></center></td>
+					<td><center><button name="mul" id="mul" onclick="javascript:operator(3)">*</button></center></td>
+				</tr>
+				<tr>
+					<td><center><button name="clr" id="clr" onclick="javascript:clr()">C</button></center></td>
+					<td><center><button name="zero" id="zero" onclick="javascript:number(0)">0</button></center></td>
+					<td><center><button name="eq" id="eq" onclick="javascript:eqls()">=</button></center></td>
+					<td><center><button name="div" id="div" onclick="javascript:operator(4)">/</button></center></td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
